@@ -12,22 +12,22 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto mu-navbar-nav">
-        <li class="nav-item active"><a href="/">Inicio</a></li>
+        <li class="nav-item active"><a href="/">Inicio</a></li>
         <li class="nav-item dropdown">
-           <a class="dropdown-toggle" href="#" role="button" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Servicios</a>
+           <a class="dropdown-toggle" href="#" role="button" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Servicios</a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-<a class="dropdown-item" href="#" >Desarrollo Web</a>
-<a class="dropdown-item" href="#" >Optimización SEO</a>
-<a class="dropdown-item" href="#" >Instalación CCTV</a>
-<a class="dropdown-item" href="#" >Capacitación Social Manager</a> 
-          </div>
-       </li>
-        <li class="nav-item"><a href="/about-us">Nosotros</a></li>
-        <li class="nav-item"><a href="/contact-us">Contáctanos</a></li>
+            <a class="dropdown-item" href="#" >Desarrollo Web</a>
+            <a class="dropdown-item" href="#" >Optimización SEO</a>
+            <a class="dropdown-item" href="#" >Instalación CCTV</a>
+            <a class="dropdown-item" href="#" >Capacitación Social Manager</a>
+           </div>
+       </li>
+       <li class="nav-item"><a href="/about-us">Nosotros</a></li>
+       <li class="nav-item"><a href="/contact-us">Contáctanos</a></li>
           <!-- <li class="nav-item"><a href="404.html">404 Page</a></li> -->
       </ul>
     </div>
-  </nav>
+  </nav>
 </div>
 </header>
 <!-- End Header -->
