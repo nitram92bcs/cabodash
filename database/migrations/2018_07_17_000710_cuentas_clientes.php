@@ -17,9 +17,9 @@ class CuentasClientes extends Migration
         Schema::create('cuentas_clientes', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('cliente_id')->unsigned();
-            $table->stringl('banco');
-            $table->stringl('cuenta');
-            $table->timestamp('created_at')->nullable();
+            $table->string('banco');
+            $table->string('cuenta');
+            $table->timestamp('created_at')->default(new Expression('CURRENT_TIMESTAMP'));
             $table->timestamp('updated_at')->default(new Expression('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
             $table->timestamp('deleted_at')->nullable();
             $table->foreign('cliente_id')->references('id')->on('clientes');

@@ -20,7 +20,7 @@ class CreateVentasTable extends Migration
             $table->integer('remesa_id')->unsigned()->nullable();
             $table->decimal('cantidad', 9, 2);
             $table->decimal('importe', 9, 2);
-            $table->timestamp('created_at')->nullable();
+            $table->timestamp('created_at')->default(new Expression('CURRENT_TIMESTAMP'));
             $table->timestamp('updated_at')->default(new Expression('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
             $table->timestamp('deleted_at')->nullable();
             $table->foreign('producto_id')->references('id')->on('productos_inventario');

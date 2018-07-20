@@ -27,7 +27,8 @@
     <link href="/css/bootstrap-select.css" rel="stylesheet">
     @yield('header')
   </head>
-  <body class="skin-red">
+  <body class="skin-red @yield('body-class')">
+    @if (View::hasSection('body-class')))
     <div class="wrapper">
 
       <header class="main-header">
@@ -118,6 +119,7 @@
     <strong>Copyright &copy; 2018 <a href="{{route('home')}}">Rancho Avicola El Platanito</a>.</strong> Derechos Reservados.
       </footer>
     </div><!-- ./wrapper -->
+    @endif
 
     <!-- jQuery 2.1.3 -->
     <!-- <script src="https://adminlte.io/themes/AdminLTE/bower_components/jquery/dist/jquery.min.js"></script> -->

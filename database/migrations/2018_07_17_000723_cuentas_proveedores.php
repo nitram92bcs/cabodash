@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Query\Expression;
 
 class CuentasProveedores extends Migration
 {
@@ -13,15 +14,15 @@ class CuentasProveedores extends Migration
      */
     public function up()
     {
-        Schema::create('cuentas_clientes', function (Blueprint $table) {
+        Schema::create('cuentas_proveedores', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('cliente_id')->unsigned();
-            $table->stringl('banco');
-            $table->stringl('cuenta');
-            $table->timestamp('created_at')->nullable();
+            $table->integer('proveedor_id')->unsigned();
+            $table->string('banco');
+            $table->string('cuenta');
+            $table->timestamp('created_at')->default(new Expression('CURRENT_TIMESTAMP'));
             $table->timestamp('updated_at')->default(new Expression('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
             $table->timestamp('deleted_at')->nullable();
-            $table->foreign('cliente_id')->references('id')->on('clientes');
+            $table->foreign('proveedor_id')->references('id')->on('proveedores');
         });
     }
 
@@ -32,6 +33,6 @@ class CuentasProveedores extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cuentas_clientes');
+        Schema::dropIfExists('cuentas_proveedores');
     }
 }

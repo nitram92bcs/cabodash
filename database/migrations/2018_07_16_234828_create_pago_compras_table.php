@@ -20,7 +20,7 @@ class CreatePagoComprasTable extends Migration
             $table->enum('metodo_pago', ['TRANS. ELEC.', 'CHECK', 'EFECTIVO', 'TD', 'TC'])->default('TRANS. ELEC.');
             $table->string('cuenta_pago');
             $table->string('referencia_pago');
-            $table->timestamp('created_at')->nullable();
+            $table->timestamp('created_at')->default(new Expression('CURRENT_TIMESTAMP'));
             $table->timestamp('updated_at')->default(new Expression('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
             $table->timestamp('deleted_at')->nullable();
 

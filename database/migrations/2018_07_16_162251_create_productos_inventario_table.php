@@ -21,7 +21,7 @@ class CreateProductosInventarioTable extends Migration
             $table->enum('unidad',['Kg','Pieza','Caja','Saco G','Saco C','Paca','lote','Granel']);
             $table->decimal('monto', 9, 2);
             $table->decimal('cantidad', 9, 2);
-            $table->timestamp('created_at')->nullable();
+            $table->timestamp('created_at')->default(new Expression('CURRENT_TIMESTAMP'));
             $table->timestamp('updated_at')->default(new Expression('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
             $table->timestamp('deleted_at')->nullable();
         });

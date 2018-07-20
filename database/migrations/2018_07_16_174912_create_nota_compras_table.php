@@ -21,7 +21,7 @@ class CreateNotaComprasTable extends Migration
             $table->decimal('total', 9, 2);
             $table->enum('status',['pendiente','parcial','pagado'])->default('pendiente');
             $table->decimal('balance', 9, 2);
-            $table->timestamp('created_at')->nullable();
+            $table->timestamp('created_at')->default(new Expression('CURRENT_TIMESTAMP'));
             $table->timestamp('updated_at')->default(new Expression('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
             $table->timestamp('deleted_at')->nullable();
             $table->foreign('proveedor_id')->references('id')->on('proveedores');

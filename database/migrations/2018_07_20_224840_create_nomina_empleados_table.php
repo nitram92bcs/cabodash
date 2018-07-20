@@ -5,7 +5,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Query\Expression;
 
-class CreateAlimentoYMortalidadTable extends Migration
+class CreateNominaEmpleadosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,16 +14,15 @@ class CreateAlimentoYMortalidadTable extends Migration
      */
     public function up()
     {
-        Schema::create('alimento_y_mortalidad', function (Blueprint $table) {
+        Schema::create('nomina_empleados', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('remesa_id')->unsigned();
-            $table->decimal('cantidad', 9, 2);
-            $table->enum('tipo', ['alimento', 'mortalidad']);
-            $table->enum('tipo_alimento',['PI','PE'])->nullable();
+            $table->integer('empleado_id')->unsigned();
+            $table->enum('tipo_sueldo',['dia','pollo','otro']);
+            $table->decimal('pago',9,2);
             $table->timestamp('created_at')->default(new Expression('CURRENT_TIMESTAMP'));
             $table->timestamp('updated_at')->default(new Expression('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
             $table->timestamp('deleted_at')->nullable();
-            $table->foreign('remesa_id')->references('id')->on('remesas');
+            $table->foreign('empleado_id')->references('id')->on('empleados');
         });
     }
 
@@ -34,6 +33,6 @@ class CreateAlimentoYMortalidadTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('alimento_y_mortalidad');
+        Schema::dropIfExists('nomina_empleados');
     }
 }

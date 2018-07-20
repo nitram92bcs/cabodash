@@ -5,7 +5,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Query\Expression;
 
-class CreateAlimentoYMortalidadTable extends Migration
+class CreateEmpleadosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,16 +14,13 @@ class CreateAlimentoYMortalidadTable extends Migration
      */
     public function up()
     {
-        Schema::create('alimento_y_mortalidad', function (Blueprint $table) {
+        Schema::create('empleados', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('remesa_id')->unsigned();
-            $table->decimal('cantidad', 9, 2);
-            $table->enum('tipo', ['alimento', 'mortalidad']);
-            $table->enum('tipo_alimento',['PI','PE'])->nullable();
+            $table->string('nombre');
+            $table->enum('tipo_empleado',['general','temporal']);
             $table->timestamp('created_at')->default(new Expression('CURRENT_TIMESTAMP'));
             $table->timestamp('updated_at')->default(new Expression('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
             $table->timestamp('deleted_at')->nullable();
-            $table->foreign('remesa_id')->references('id')->on('remesas');
         });
     }
 
@@ -34,6 +31,6 @@ class CreateAlimentoYMortalidadTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('alimento_y_mortalidad');
+        Schema::dropIfExists('empleados');
     }
 }
