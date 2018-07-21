@@ -27,8 +27,8 @@
     <link href="/css/bootstrap-select.css" rel="stylesheet">
     @yield('header')
   </head>
-  <body class="skin-red @yield('body-class')">
-    @if (View::hasSection('body-class')))
+  <body class="@yield('dashboard') @yield('login')">
+    @hasSection('dashboard')
     <div class="wrapper">
 
       <header class="main-header">
@@ -119,6 +119,8 @@
     <strong>Copyright &copy; 2018 <a href="{{route('home')}}">Rancho Avicola El Platanito</a>.</strong> Derechos Reservados.
       </footer>
     </div><!-- ./wrapper -->
+    @elseif(View::hasSection('login'))
+    @yield('login')
     @endif
 
     <!-- jQuery 2.1.3 -->

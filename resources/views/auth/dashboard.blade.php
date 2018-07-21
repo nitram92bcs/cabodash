@@ -10,6 +10,7 @@
   <small>Pagina de Pruebas</small>
 </h1>
 @endsection
+@section('dashboard','skin-red')
 @section('content')
   <div  class="content">
     <div class="row">
