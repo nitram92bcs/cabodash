@@ -46,7 +46,7 @@
               <li class="dropdown user user-menu">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                   	<img src="/img/avatar-usuario.jpg" class="user-image" alt="User Image"/>
-                  <span class="hidden-xs">Usuario</span>
+                  <span class="hidden-xs"> {{ Auth::user()->name }}</span>
                 </a>
                 <ul class="dropdown-menu">
                   <!-- User image -->
@@ -59,7 +59,14 @@
                   </li>
                   <li class="user-footer">
                     <div class="pull-right">
-                      <a href="/auth/logout" class="btn btn-default btn-flat">Salir</a>
+                      <a class="dropdown-item" href="{{ route('logout') }}"
+                          onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                          {{ __('Salir') }}
+                      </a>
+
+                      <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                          @csrf
+                      </form>
                     </div>
                   </li>
                 </ul>
@@ -120,7 +127,7 @@
       </footer>
     </div><!-- ./wrapper -->
     @elseif(View::hasSection('login'))
-    @yield('login')
+    @yield('content')
     @endif
 
     <!-- jQuery 2.1.3 -->
