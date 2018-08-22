@@ -11,10 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-  return view('welcome');
 
-});
 Route::get('/theme2',function(){
   return view('theme2');
 })->name('admin');
@@ -24,5 +21,6 @@ Route::middleware('auth')->prefix('admin')->group(function(){
   Route::get('/','DashboardController@index')->name('dashboard');
 });
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@index')->name('home');
+Route::get('/en', 'HomeController@indexEn')->name('home-en');
 
