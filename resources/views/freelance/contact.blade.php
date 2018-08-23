@@ -10,7 +10,7 @@
             <div class="col-lg-8 col-lg-offset-2">
             <p class="text-center"> {{trans('freelance.contact-text')}}
                 <br>
-            <h3 class="text-center"><a href="mailto:urias.martin.developer@gmail.com"><i class="fa fa-envelope"></i> URIAS.MARTIN.DEVELOPER@GMAIL.COM</a></h3>
+            <a href="mailto:urias.martin.developer@gmail.com"><i class="fa fa-envelope"></i> URIAS.MARTIN.DEVELOPER @GMAIL.COM</a>
             <br>
             <h1 class="text-center"><a href="tel:+526241914310"><i class="fa fa-phone"></i> +52 624 191 4310</a></h1>
             </p>
