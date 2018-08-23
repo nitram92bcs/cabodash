@@ -54,7 +54,12 @@ BASE: http://keenthemes.com/preview/metronic/theme/admin_2/index.html
         <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
         <meta name="theme-color" content="#ffffff">
     <!-- END HEAD -->
-
+    
+    @hasSection('login')
+    <link rel="stylesheet" href="/metronic/css/login.css">
+    <body class=" login">
+        @yield('login')
+    @elseif(View::hasSection('content'))
     <body class="page-header-fixed page-sidebar-closed-hide-logo page-container-bg-solid">
         @include('metronic.header')
         <!-- BEGIN HEADER & CONTENT DIVIDER -->
@@ -102,6 +107,7 @@ BASE: http://keenthemes.com/preview/metronic/theme/admin_2/index.html
 <script src="/excanvas.min.js"></script> 
 <script src="/ie8.fix.min.js"></script> 
 <![endif]-->
+    @endif
             <!-- BEGIN CORE PLUGINS -->
             <script src="{{asset('metronic/js/jquery.min.js')}}" type="text/javascript"></script>
             <script src="{{asset('metronic/js/bootstrap.js')}}" type="text/javascript"></script>
@@ -112,9 +118,12 @@ BASE: http://keenthemes.com/preview/metronic/theme/admin_2/index.html
             <!-- END CORE PLUGINS -->
             <!-- BEGIN THEME GLOBAL SCRIPTS -->
             <script src="{{asset('metronic/js/app.js')}}" type="text/javascript"></script>
+            <script src="{{asset('metronic/js/jquery.validation.js')}}" type="text/javascript"></script>
             <!-- END THEME GLOBAL SCRIPTS -->
             <!-- BEGIN PAGE LEVEL SCRIPTS -->
+                @yield('script')
             <!-- END PAGE LEVEL SCRIPTS -->
+            @hasSection('content')
             <!-- BEGIN THEME LAYOUT SCRIPTS -->
             <script src="{{asset('metronic/js/layout.js')}}" type="text/javascript"></script>
             <script src="{{asset('metronic/js/demo.js')}}" type="text/javascript"></script>
@@ -130,8 +139,8 @@ BASE: http://keenthemes.com/preview/metronic/theme/admin_2/index.html
                     });
                 })
             </script>
+            @endif
+            
 
 </body>
-
-
 </html>
