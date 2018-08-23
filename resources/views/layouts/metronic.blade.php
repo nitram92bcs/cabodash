@@ -118,7 +118,7 @@ BASE: http://keenthemes.com/preview/metronic/theme/admin_2/index.html
             <!-- END CORE PLUGINS -->
             <!-- BEGIN THEME GLOBAL SCRIPTS -->
             <script src="{{asset('metronic/js/app.js')}}" type="text/javascript"></script>
-            <script src="{{asset('metronic/js/jquery.validation.js')}}" type="text/javascript"></script>
+            <script src="{{asset('metronic/js/jquery.validation.min.js')}}" type="text/javascript"></script>
             <!-- END THEME GLOBAL SCRIPTS -->
             <!-- BEGIN PAGE LEVEL SCRIPTS -->
                 @yield('script')
