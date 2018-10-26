@@ -45,7 +45,9 @@
     <!-- Google Fonts Raleway -->
 	<link href="https://fonts.googleapis.com/css?family=Raleway:300,400,400i,500,500i,600,700" rel="stylesheet">
 	<!-- Google Fonts Open sans -->
-	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,700,800" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,700,800" rel="stylesheet">
+  <!--  Verificación de Google -->
+  <meta name="google-site-verification" content="0Ay3R22Ss5gabc4fIELiLQCRqpe-7at5Kebyo44XSAY" />
   @yield('style')
 
 	</head>
