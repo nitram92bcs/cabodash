@@ -24,3 +24,5 @@ Route::middleware('auth')->prefix('admin')->group(function(){
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/en', 'HomeController@indexEn')->name('home-en');
 
+Route::get('/proyecto/eames-lounge-restoration','ProjectsController@eamesLounge');
+
