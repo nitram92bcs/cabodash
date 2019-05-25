@@ -115,6 +115,8 @@
         background-color: #26483e;
         margin-left:10px;
         margin-right:10px;
+        padding: 10px;
+
     }
     .btn-elr.secondary{
         color: #6D6E71;
@@ -123,6 +125,19 @@
         border: 2px solid #A5886D;
         margin-left:10px;
         margin-right:10px;
+        padding: 10px;
+
+    }
+    .btn-elr.btn-elr.secondary.active, .btn-elr.btn-elr.secondary:hover{
+        background-color: #A5886D;
+        color:#fff;
+        transition: transform .3s, border .3s, background .3s, box-shadow .3s, opacity .3s, color .3s;
+    }
+    .btn-elr.off-2{
+        margin-left: 12%;
+    }
+    .btn-elr.off-3{
+        margin-left: 25%;
     }
     /* .tab-content.active{
         display:block;
@@ -189,7 +204,22 @@
     </div>
 </div>
 </div>
-<br><br><br><br><br><br><br>
+<br><br>
+<div class="container">
+<div class="col-md-12">
+    <h1 class="text-center">Generation Picker</h1>
+</div>
+<div class="row">
+    <div class="btn-elr col-md-3 secondary active off-2">DISCOVER MORE</div>
+    <div class="btn-elr col-md-3 secondary">DISCOVER MORE</div>
+    <div class="btn-elr col-md-3 secondary">DISCOVER MORE</div>
+</div>
+<div class="row" style="margin-top:20px;">
+ <div class="btn-elr col-md-3 off-3 secondary active">DISCOVER MORE</div>
+    <div class="btn-elr col-md-3  secondary ">DISCOVER MORE</div>
+</div>
+</div>
+<br><br><br><br><br>
 @endsection
 @section('scripts')
 <script>
