@@ -1,7 +1,13 @@
-@extends('layouts.freelance-pages')
-@section('title', 'Eames Lounge Restoration')
-@section('style')
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>GENERATION PICKER ELR</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <style>
+
     .tab-container .row {
         margin: 0;
         background-color: #EFEFEF;
@@ -186,72 +192,9 @@
         background-repeat: no-repeat;
         background-size: 105px;
     }
-    /* .tab-content.active{
-        display:block;
-    } */
 </style>
-@endsection
-@section('content')
-<div class="container">
-<div class="col-md-12">
-    <h1 class="text-center">TABS</h1>
-</div>
-<div class="col-md-12">
-    <div class="tab-container">
-        <div class="row ">
-            <div class="tab-option col-md-4" data-target=".tab-1">
-                <div class="tab-col first active">
-                    <div class="tab-image">
-                        <img src="/images/projects/eames-lounge/cushions.png" alt="">
-                    </div>
-                    <div class="tab-title uppercase font-grey-cascade">UPHOLSTERY</div>
-                </div>
-            </div>
-            <div class="tab-option col-md-4" data-target=".tab-2">
-                <div class="tab-col">
-                    <div class="tab-image">
-                        <img src="/images/projects/eames-lounge/refinish.png" alt="">
-                    </div>
-                    <div class="tab-title uppercase font-grey-cascade">REFINISHING</div>
-                </div>
-            </div>
-            <div class="tab-option col-md-4" data-target=".tab-3">
-                <div class="tab-col last">
-                    <div class="tab-image">
-                        <img src="/images/projects/eames-lounge/shock-mounts.png" alt="">
-                    </div>
-                    <div class="tab-title uppercase font-grey-cascade">SHOCK MOUNTING</div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="col-md-12">
-    <div class="col-md-12 tab-content tab-1 ">
-        <div class="image col-lg-6 col-md-5">
-            <img src="/images/projects/eames-lounge/chair.jpg" alt="">
-        </div>
-        <div class="col-lg-6 col-md-7">
-            <div class="body ">
-                <h3>EXTENDED LIFE FOR</h3>
-                <h1>YOUR EAMES</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-            </div>
-            <div class="actions">
-                <div class="btn-elr col-md-5 secondary">DISCOVER MORE</div>
-                <div class="btn-elr col-md-5 primary">REQUEST A QUOTE</div>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-12 tab-content tab-2" >
-        <h1 class="text-center">REFINISHING</h1>
-    </div>
-    <div class="col-md-12 tab-content tab-3" >
-        <h1 class="text-center">SHOCK MOUNTING</h1>
-    </div>
-</div>
-</div>
-<br><br>
+</head>
+<body>
 <div class="container">
 <div class="col-md-12">
     <h1 class="text-center">Generation Picker</h1><br><br>
@@ -304,78 +247,51 @@
     </div>
 </div>
 </div>
-<br><br><br>
-@endsection
-@section('scripts')
-<script>
-var sections;
-$(document).ready(function() {
-   sections = [];
-    $('.tab-container .tab-option').each(function(index,element){
-        var data = {};
-        data.selector = $(element).data('target');
-        sections.push(data);
-    });
-    $('.tab-1').show();
-    $('.tab-option').on('click',function(){
-        var target = $(this).data('target');
-        if($(this).find('.active').length !== 0){  
-
-        }
-        else{
-            $.each(sections,function(index,element){
-                if( $(".tab-option[data-target='"+element.selector+"']").find('.tab-col').hasClass('active')&& element.selector != target ){
-                    $(".tab-option[data-target='"+element.selector+"']").find('.tab-col').removeClass('active')
-                    $(element.selector).hide();
-                }
-            });
-            $(".tab-option[data-target='"+target+"']").find('.tab-col').addClass('active');
-            $(target).fadeIn('slow');
-        }       
-    }); 
-});
-</script>
+    <br><br><br><br><br><br><br>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <script>
     var generation;
-$(document).ready(function() {
-   generation = [];
-   $('.generation').on('click',function(){
-        $('.generation.active').removeClass('active');
-        $(this).addClass('active');
+    $(document).ready(function () {
+        generation = [];
+        $('.generation').on('click', function () {
+            $('.generation.active').removeClass('active');
+            $(this).addClass('active');
+            $('#generation-selected').trigger('change');
+        });
+        $('.cushion').on('click', function () {
+            $('.cushion.active').removeClass('active');
+            $(this).addClass('active');
+            $('#generation-selected').trigger('change');
+        });
+        $('#generation-selected').on('change', function () {
+            var basePath = '/images/projects/eames-lounge/generation/';
+            var img = $(this).attr('src');
+            var gen = $('.generation.active').data('generation');
+            var cus = $('.cushion.active').data('cushion') == true ? 'c' : 'wc';
+            var newImg = basePath + 'chair-' + gen + '-' + cus + '.jpg';
+            if (img != newImg) {
+                $(this).fadeOut(function () { $(this).fadeIn('slow').attr('src', newImg); });
+            }
+        });
         $('#generation-selected').trigger('change');
-   });
-   $('.cushion').on('click',function(){
-        $('.cushion.active').removeClass('active');
-        $(this).addClass('active');
-        $('#generation-selected').trigger('change');
-   });
-   $('#generation-selected').on('change',function(){
-        var basePath= '/images/projects/eames-lounge/generation/';
-        var img = $(this).attr('src');
-        var gen = $('.generation.active').data('generation');
-        var cus = $('.cushion.active').data('cushion')==true?'c':'wc';
-        var newImg = basePath+'chair-'+gen+'-'+cus+'.jpg';
-        if(img != newImg){
-            $(this).fadeOut(function(){ $(this).fadeIn('slow').attr('src',newImg); });
-        }
-    });
-    $('#generation-selected').trigger('change');
-    $('.color-picker').on('click',function(){
-        $('.color-picker.active').removeClass('active');
-        $(this).addClass('active');
+        $('.color-picker').on('click', function () {
+            $('.color-picker.active').removeClass('active');
+            $(this).addClass('active');
+            $('#customize-color').trigger('change');
+        });
+        $('#customize-color').on('change', function () {
+            var basePath = '/images/projects/eames-lounge/color-picker/';
+            var img = $(this).attr('src');
+            var color = $('.color-picker.active').data('color');
+            var newImg = basePath + 'color-' + color + '.jpg';
+            if (img != newImg) {
+                $(this).fadeOut(function () { $(this).fadeIn('slow').attr('src', newImg); });
+            }
+        });
         $('#customize-color').trigger('change');
     });
-    $('#customize-color').on('change',function(){
-        var basePath= '/images/projects/eames-lounge/color-picker/';
-        var img = $(this).attr('src');
-        var color = $('.color-picker.active').data('color');
-        var newImg = basePath+'color-'+color+'.jpg';
-        if(img != newImg){
-            $(this).fadeOut(function(){ $(this).fadeIn('slow').attr('src',newImg); });
-        }
-    });
-     $('#customize-color').trigger('change');
-});
     // $(target).fadeIn('slow');
 </script>
-@endsection
+</body>
+</html>
