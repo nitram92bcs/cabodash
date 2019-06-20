@@ -10,4 +10,4 @@ jobs:
       - image: circleci/php:7.1-node-browsers
     steps:
      - checkout
-     - run: notacommand
+     - run: echo "Esta es una prueba exitosa"
