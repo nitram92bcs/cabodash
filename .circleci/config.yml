@@ -26,7 +26,7 @@ jobs:
     steps:
      - checkout
      - run: echo "Esta es la segunda prueba"
-     attach_workspace:
+     - attach_workspace:
           # Must be absolute path or relative path from working_directory
           at: my_workspace
 
