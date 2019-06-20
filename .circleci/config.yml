@@ -24,9 +24,9 @@ jobs:
       # Specify the version you desire here
       - image: circleci/php:7.1-node-browsers
     steps:
-     - checkout
-     - run: echo "Esta es la segunda prueba"
-     - attach_workspace:
+      - checkout
+      - run: echo "A more familiar hi"  
+      - attach_workspace:
           # Must be absolute path or relative path from working_directory
           at: my_workspace
 
