@@ -11,18 +11,36 @@ jobs:
     steps:
      - checkout
      - run: echo "Esta es una prueba exitosa"
-     - run: sleep 25
+     - run: mkdir -p my_workspace
+     - run: echo "Trying out workspaces" > my_workspace/echo-output
+     - persist_to_workspace:
+        # Must be an absolute path, or relative path from working_directory
+        root: my_workspace
+        # Must be relative path from root
+        paths:
+          - echo-output    
   two:
     docker:
       # Specify the version you desire here
       - image: circleci/php:7.1-node-browsers
     steps:
      - checkout
-     - run: echo "Esta es una prueba exitosa"
-     - run: sleep 15
+     - run: echo "Esta es la segunda prueba"
+     attach_workspace:
+          # Must be absolute path or relative path from working_directory
+          at: my_workspace
+
+      - run: |
+          if [[ $(cat my_workspace/echo-output) == "Trying out workspaces" ]]; then
+            echo "It worked!";
+          else
+            echo "Nope!"; exit 1
+          fi
 workflows:
    version: 2
    one_and_two:
      jobs:
        - one
-       - two
+       - two:
+          requires:
+            - one
