@@ -4,10 +4,25 @@
 #
 version: 2
 jobs:
-  build:
+  one:
     docker:
       # Specify the version you desire here
       - image: circleci/php:7.1-node-browsers
     steps:
      - checkout
      - run: echo "Esta es una prueba exitosa"
+     - run: sleep 25
+  two:
+    docker:
+      # Specify the version you desire here
+      - image: circleci/php:7.1-node-browsers
+    steps:
+     - checkout
+     - run: echo "Esta es una prueba exitosa"
+     - run: sleep 15
+workflows:
+   version: 2
+   one_and_two:
+     jobs:
+       - one
+       - two
